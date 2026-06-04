@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Navbar from "./components/Navbar";
@@ -8,9 +8,17 @@ import Dashboard from "./admin/Dashboard";
 const App = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [page, setPage] = useState("login");
-
-  // user atau admin
   const [role, setRole] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const savedRole = localStorage.getItem("role");
+
+    if (token) {
+      setIsLogin(true);
+      setRole(savedRole);
+    }
+  }, []);
 
   if (isLogin) {
     if (role === "admin") {

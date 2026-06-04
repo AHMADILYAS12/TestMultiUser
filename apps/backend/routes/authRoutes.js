@@ -16,14 +16,7 @@ router.get("/admin", verifyToken, allowRoles("admin"), (req, res) => {
   });
 });
 
-router.get("/panitia", verifyToken, allowRoles("admin", "panitia"), (req, res) => {
-  res.json({
-    message: "Selamat datang panitia",
-    user: req.user,
-  });
-});
-
-router.get("/user", verifyToken, allowRoles("admin", "panitia", "user"), (req, res) => {
+router.get("/user", verifyToken, allowRoles("admin", "user"), (req, res) => {
   res.json({
     message: "Selamat datang user",
     user: req.user,

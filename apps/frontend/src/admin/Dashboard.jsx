@@ -8,9 +8,18 @@ import {
   FileText,
   Search,
   Bell,
+  LogOut,
 } from "lucide-react";
 
 export default function AdminDashboard() {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
@@ -97,6 +106,14 @@ export default function AdminDashboard() {
 
             <Bell className="text-gray-600 cursor-pointer" />
 
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition"
+            >
+              <LogOut size={18} />
+              Logout
+            </button>
+
             <img
               src="https://i.pravatar.cc/40"
               alt="admin"
@@ -171,18 +188,16 @@ export default function AdminDashboard() {
                   <th className="text-left py-3">Name</th>
                   <th className="text-left py-3">Email</th>
                   <th className="text-left py-3">Role</th>
-                  <th className="text-left py-3">Status</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr className="border-b">
-                  <td className="py-3">Ahmad Ilyas</td>
-                  <td>ahmad@gmail.com</td>
-                  <td>Admin</td>
+                  <td className="py-3">Administrator</td>
+                  <td>admin@gmail.com</td>
                   <td>
-                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
-                      Active
+                    <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">
+                      Admin
                     </span>
                   </td>
                 </tr>
@@ -190,10 +205,9 @@ export default function AdminDashboard() {
                 <tr className="border-b">
                   <td className="py-3">Budi</td>
                   <td>budi@gmail.com</td>
-                  <td>User</td>
                   <td>
-                    <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
-                      Pending
+                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+                      User
                     </span>
                   </td>
                 </tr>
@@ -201,10 +215,9 @@ export default function AdminDashboard() {
                 <tr>
                   <td className="py-3">Siti</td>
                   <td>siti@gmail.com</td>
-                  <td>User</td>
                   <td>
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
-                      Active
+                      User
                     </span>
                   </td>
                 </tr>

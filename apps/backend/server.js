@@ -12,9 +12,9 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     credentials: true,
-  }),
+  })
 );
 
 app.use(cookieParser());

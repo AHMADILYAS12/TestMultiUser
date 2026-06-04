@@ -25,7 +25,6 @@ const seedAdmin = async () => {
       email: "admin@gmail.com",
       password: hashPassword,
       role: "admin",
-      status: "active",
     });
 
     console.log("Admin berhasil dibuat");

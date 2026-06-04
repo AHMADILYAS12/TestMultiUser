@@ -63,12 +63,7 @@ export const login = async (req, res) => {
       where: { email },
     });
 
-    if (user.status !== "active") {
-      return res.status(403).json({
-        message: "Akun tidak aktif",
-      });
-    }
-
+    
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
