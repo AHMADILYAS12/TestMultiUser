@@ -1,0 +1,13 @@
+{
+  "name":"sistemMultiUser",
+  "private":"true",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev"
+  }, 
+  "devDependencies": {
+    "turbo": "2.9.16"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
